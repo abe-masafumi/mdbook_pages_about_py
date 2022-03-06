@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>文字列の操作</title>
+        <title>配列の操作</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -11,21 +11,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -35,7 +35,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "../";
+            var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html">Pandas</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../paizaでよく使う記述/paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="../基本的な記述/python.html"><strong aria-hidden="true">2.</strong> python</a></li><li class="chapter-item expanded "><a href="../paizaでよく使う記述/array_01.html"><strong aria-hidden="true">3.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="../paizaでよく使う記述/object_1.html"><strong aria-hidden="true">4.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="../paizaでよく使う記述/string_1.html" class="active"><strong aria-hidden="true">5.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="../paizaでよく使う記述/console.html"><strong aria-hidden="true">6.</strong> console出力</a></li><li class="chapter-item expanded "><a href="../paizaでよく使う記述/calculation.html"><strong aria-hidden="true">7.</strong> calculation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/Pandas.html">Pandas</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="array_01.html" class="active"><strong aria-hidden="true">2.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="object_1.html"><strong aria-hidden="true">3.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="string_1.html"><strong aria-hidden="true">4.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="console.html"><strong aria-hidden="true">5.</strong> console出力</a></li><li class="chapter-item expanded "><a href="calculation.html"><strong aria-hidden="true">6.</strong> calculation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -112,7 +112,7 @@
                     <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
@@ -132,21 +132,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#文字列の操作" id="文字列の操作">文字列の操作</a></h1>
+                        <h1><a class="header" href="#配列の操作" id="配列の操作">配列の操作</a></h1>
 <hr />
+<h1><a class="header" href="#配列の置換" id="配列の置換">配列の置換</a></h1>
+<p><a href="https://qiita.com/rudorufu1981/items/5341d9603ecb1f9c2e5c">配列の置換と回転</a>
+<a href="https://jackee777.hatenablog.com/entry/2019/05/03/223646">配列の置換_zip</a></p>
+<pre><code>```py
+print([1, 2, 3])
+print([4, 5, 6])
+print([7, 8, 9])
+# 右回転
+S = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for x in zip(*S[::-1]):
+  print(*x,sep='')
+
+# 左回転
+S = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+T_S = list(zip(*S))
+for x in T_S[::-1]:
+    print(*x,sep='')
+```
+</code></pre>
+<h1><a class="header" href="#listの重複を削除" id="listの重複を削除">listの重複を削除</a></h1>
+<p><a href="https://note.nkmk.me/python-list-duplicate-check/">Pythonでリスト（配列）に重複した要素があるか判定</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../paizaでよく使う記述/object_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="paiza.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../paizaでよく使う記述/console.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="object_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -158,13 +179,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../paizaでよく使う記述/object_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="paiza.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../paizaでよく使う記述/console.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="object_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -188,9 +209,9 @@
 
         
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

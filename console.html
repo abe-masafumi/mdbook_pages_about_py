@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>python環境</title>
+        <title>console出力</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="python.html" class="active">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/Pandas.html">Pandas</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="paizaでよく使う記述/paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="基本的な記述/python.html"><strong aria-hidden="true">2.</strong> python</a></li><li class="chapter-item expanded "><a href="paizaでよく使う記述/array_01.html"><strong aria-hidden="true">3.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="paizaでよく使う記述/object_1.html"><strong aria-hidden="true">4.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="paizaでよく使う記述/string_1.html"><strong aria-hidden="true">5.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="paizaでよく使う記述/console.html"><strong aria-hidden="true">6.</strong> console出力</a></li><li class="chapter-item expanded "><a href="paizaでよく使う記述/calculation.html"><strong aria-hidden="true">7.</strong> calculation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="ライブラリ/Pandas.html">Pandas</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="array_01.html"><strong aria-hidden="true">2.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="object_1.html"><strong aria-hidden="true">3.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="string_1.html"><strong aria-hidden="true">4.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="console.html" class="active"><strong aria-hidden="true">5.</strong> console出力</a></li><li class="chapter-item expanded "><a href="calculation.html"><strong aria-hidden="true">6.</strong> calculation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -132,135 +132,21 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#python環境" id="python環境">python環境</a></h1>
+                        <h1><a class="header" href="#console出力" id="console出力">Console出力</a></h1>
 <hr />
-<h3><a class="header" href="#google-colaboratory" id="google-colaboratory">google colaboratory</a></h3>
-<p>pysonを環境構築なしで使用できるツール</p>
-<hr />
-<p>google colaboratoryとは</p>
-<p><a href="https://www.youtube.com/watch?v=wMXhZAINYhw">youtube_キノコード / プログラミング学習チャンネル</a></p>
-<img src="../img/google.png" alt="image">
-<hr />
-<h3><a class="header" href="#jupyter-notebook-with-vs-code" id="jupyter-notebook-with-vs-code">jupyter notebook with vs code</a></h3>
-<p>jupyter notebook を vscodeで使用する方法</p>
-<p><a href="https://virtualenv.pypa.io/en/latest/user_guide.html">document</a></p>
-<p><a href="https://www.youtube.com/watch?v=O7p4TbIF0Mg">仮想環境を作ろう。virtualenvの使い方</a></p>
-<p><a href="https://qiita.com/m-masaki72/items/7ba34e31d9f08662f1ee">virtualenvをgitで管理すると便利</a></p>
-<p><a href="https://genchan.net/it/programming/python/7773/#JupyterWindowsmacOSLinux">VSCodeからJupyterを実行する方法</a></p>
-<hr />
-<ol>
-<li>
-<p>virtualenvをインストールする</p>
-<blockquote>
-<p>似たようなライブラリがたくさんあるけどvirtualenvが使い易い</p>
-</blockquote>
-<blockquote>
-<p>gitignoreの設定が最初からされている</p>
-</blockquote>
-<pre><code class="language-bash">#  初回のみ
-pip install virtualenv
-</code></pre>
-</li>
-<li>
-<p>仮想環境に入るためのファイルを作成</p>
-<pre><code class="language-bash"># プロジェクト名はない方が扱いやすい
-virtualenv (プロジェクト名)
-# or
-virtualenv .
-</code></pre>
-</li>
-<li>
-<p>仮想環境に入る</p>
-<pre><code class="language-bash">source bin/activate
-</code></pre>
-<blockquote>
-<p>仮想環境に入った状態でpip install (ライブラリ)で環境が分離される</p>
-</blockquote>
-<ul>
-<li>
-<p>仮想環境から出る</p>
-<pre><code class="language-bash">deactivate
-</code></pre>
-</li>
-</ul>
-</li>
-<li>
-<p>Jupyterのパッケージをインストール</p>
-<pre><code class="language-bash">pip install jupyter
-
-pip install pandas lxml plotly-express
-</code></pre>
-</li>
-<li>
-<p>パッケージをインストール後はrequirements.txtに書き出す</p>
-</li>
-</ol>
-<pre><code>&gt; git clone 後に、簡単にパッケージをインストールするために必要
-
-```
-pip freeze &gt; requirements.txt
-```
-</code></pre>
-<ol start="2">
-<li>
-<p>設定ファイルを追加する</p>
-<p>.vscode/settings.jsonファイルを作成し、内容を以下の通りにする</p>
-<pre><code class="language-json">{
-  // PythonのPATHをワークスペースの仮想環境にする
-  &quot;python.pythonPath&quot; : &quot;${workspaceFolder}/venv/bin/python&quot;,
-  // 仮想環境にインストールしたファイルは監視対象から除外する
-  &quot;files.watcherExclude&quot; : {
-      &quot;**/venv/**&quot; : true
-  }
-}
-</code></pre>
-</li>
-<li>
-<p>ファイルを作成する</p>
-<p>hello.ipynbファイルを作成する</p>
-<pre><code class="language-py">import plotly.express as px
-</code></pre>
-<p>tips = px.data.tips()
-px.parallel_categories(tips, color = 'size').show()</p>
-<pre><code>
-実行する
-
-実行時の選択肢は現在のプロジェクトを選択
-
-&lt;img src=&quot;../img/home2.png&quot;&gt;
-
- 結果
-
-&lt;img src=&quot;../img/home.png&quot;&gt;
-
-</code></pre>
-</li>
-</ol>
-<h4><a class="header" href="#git-clone-後の処理" id="git-clone-後の処理">git clone 後の処理</a></h4>
-<ol>
-<li>
-<p>virtualenvを作成</p>
-<pre><code class="language-bash">virtualenv .
-</code></pre>
-<p>バーチャル環境に入る</p>
-<pre><code class="language-bash">source bin/activate
-</code></pre>
-</li>
-<li>
-<p>requirement.txtからpipでパッケージを入れる</p>
-<pre><code class="language-bash">pip install -r requirements.txt
-</code></pre>
-</li>
-</ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="string_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="product一覧/numbers3.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="calculation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -272,9 +158,13 @@ px.parallel_categories(tips, color = 'size').show()</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="string_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a rel="next" href="product一覧/numbers3.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="calculation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
