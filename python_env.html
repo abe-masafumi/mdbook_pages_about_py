@@ -139,7 +139,7 @@
 <hr />
 <p>google colaboratoryとは</p>
 <p><a href="https://www.youtube.com/watch?v=wMXhZAINYhw">youtube_キノコード / プログラミング学習チャンネル</a></p>
-<img src="../img/google.png" alt="image">
+<img src="./img/google.png" alt="image">
 <hr />
 <h3><a class="header" href="#jupyter-notebook-with-vs-code" id="jupyter-notebook-with-vs-code">jupyter notebook with vs code</a></h3>
 <p>jupyter notebook を vscodeで使用する方法</p>
@@ -149,8 +149,8 @@
 <p><a href="https://genchan.net/it/programming/python/7773/#JupyterWindowsmacOSLinux">VSCodeからJupyterを実行する方法</a></p>
 <hr />
 <ol>
-<li>
-<p>virtualenvをインストールする</p>
+<li>virtualenvをインストールする</li>
+</ol>
 <blockquote>
 <p>似たようなライブラリがたくさんあるけどvirtualenvが使い易い</p>
 </blockquote>
@@ -160,98 +160,83 @@
 <pre><code class="language-bash">#  初回のみ
 pip install virtualenv
 </code></pre>
-</li>
-<li>
-<p>仮想環境に入るためのファイルを作成</p>
+<ol>
+<li>仮想環境に入るためのファイルを作成</li>
+</ol>
 <pre><code class="language-bash"># プロジェクト名はない方が扱いやすい
 virtualenv (プロジェクト名)
 # or
 virtualenv .
 </code></pre>
-</li>
-<li>
-<p>仮想環境に入る</p>
+<ol>
+<li>仮想環境に入る</li>
+</ol>
 <pre><code class="language-bash">source bin/activate
 </code></pre>
 <blockquote>
 <p>仮想環境に入った状態でpip install (ライブラリ)で環境が分離される</p>
 </blockquote>
-<ul>
-<li>
-<p>仮想環境から出る</p>
+<ol>
+<li>仮想環境から出る</li>
+</ol>
 <pre><code class="language-bash">deactivate
 </code></pre>
-</li>
-</ul>
-</li>
-<li>
-<p>Jupyterのパッケージをインストール</p>
+<ol>
+<li>Jupyterのパッケージをインストール</li>
+</ol>
 <pre><code class="language-bash">pip install jupyter
 
 pip install pandas lxml plotly-express
 </code></pre>
-</li>
-<li>
-<p>パッケージをインストール後はrequirements.txtに書き出す</p>
-</li>
+<ol>
+<li>パッケージをインストール後はrequirements.txtに書き出す</li>
 </ol>
-<pre><code>&gt; git clone 後に、簡単にパッケージをインストールするために必要
-
-```
-pip freeze &gt; requirements.txt
-```
+<blockquote>
+<p>git clone 後に、簡単にパッケージをインストールするために必要</p>
+</blockquote>
+<pre><code>pip freeze &gt; requirements.txt
 </code></pre>
 <ol start="2">
-<li>
-<p>設定ファイルを追加する</p>
+<li>設定ファイルを追加する</li>
+</ol>
 <p>.vscode/settings.jsonファイルを作成し、内容を以下の通りにする</p>
 <pre><code class="language-json">{
-  // PythonのPATHをワークスペースの仮想環境にする
-  &quot;python.pythonPath&quot; : &quot;${workspaceFolder}/venv/bin/python&quot;,
-  // 仮想環境にインストールしたファイルは監視対象から除外する
-  &quot;files.watcherExclude&quot; : {
-      &quot;**/venv/**&quot; : true
-  }
+// PythonのPATHをワークスペースの仮想環境にする
+&quot;python.pythonPath&quot; : &quot;${workspaceFolder}/venv/bin/python&quot;,
+// 仮想環境にインストールしたファイルは監視対象から除外する
+&quot;files.watcherExclude&quot; : {
+&quot;**/venv/**&quot; : true
+}
 }
 </code></pre>
-</li>
-<li>
-<p>ファイルを作成する</p>
+<ol start="3">
+<li>ファイルを作成する</li>
+</ol>
 <p>hello.ipynbファイルを作成する</p>
 <pre><code class="language-py">import plotly.express as px
+
+tips = px.data.tips()
+px.parallel_categories(tips, color = 'size').show()
 </code></pre>
-<p>tips = px.data.tips()
-px.parallel_categories(tips, color = 'size').show()</p>
-<pre><code>
-実行する
-
-実行時の選択肢は現在のプロジェクトを選択
-
-&lt;img src=&quot;../img/home2.png&quot;&gt;
-
- 結果
-
-&lt;img src=&quot;../img/home.png&quot;&gt;
-
-</code></pre>
-</li>
-</ol>
+<p>実行する</p>
+<p>実行時の選択肢は現在のプロジェクトを選択</p>
+<img src="../img/home2.png">
+<p>結果</p>
+<img src="../img/home.png">
 <h4><a class="header" href="#git-clone-後の処理" id="git-clone-後の処理">git clone 後の処理</a></h4>
 <ol>
-<li>
-<p>virtualenvを作成</p>
+<li>virtualenvを作成</li>
+</ol>
 <pre><code class="language-bash">virtualenv .
 </code></pre>
 <p>バーチャル環境に入る</p>
 <pre><code class="language-bash">source bin/activate
 </code></pre>
-</li>
-<li>
-<p>requirement.txtからpipでパッケージを入れる</p>
+<ol>
+<li>requirement.txtからpipでパッケージを入れる</li>
+</ol>
 <pre><code class="language-bash">pip install -r requirements.txt
 </code></pre>
-</li>
-</ol>
 
                     </main>
 
