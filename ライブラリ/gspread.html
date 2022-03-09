@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>scrapy</title>
+        <title>gspread</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html" class="active">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html">Pandas</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/gspread.html">gspread</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="../array_01.html"><strong aria-hidden="true">2.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="../object_1.html"><strong aria-hidden="true">3.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="../string_1.html"><strong aria-hidden="true">4.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="../console.html"><strong aria-hidden="true">5.</strong> console出力</a></li><li class="chapter-item expanded "><a href="../calculation.html"><strong aria-hidden="true">6.</strong> calculation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html">Pandas</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/gspread.html" class="active">gspread</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="../array_01.html"><strong aria-hidden="true">2.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="../object_1.html"><strong aria-hidden="true">3.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="../string_1.html"><strong aria-hidden="true">4.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="../console.html"><strong aria-hidden="true">5.</strong> console出力</a></li><li class="chapter-item expanded "><a href="../calculation.html"><strong aria-hidden="true">6.</strong> calculation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -132,48 +132,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#scrapy" id="scrapy">scrapy</a></h1>
+                        <h1><a class="header" href="#gspread" id="gspread">gspread</a></h1>
 <hr />
-<p><a href="https://docs.scrapy.org/en/latest/index.html">document</a></p>
-<p><a href="https://docs.scrapy.org/en/latest/topics/developer-tools.html#topics-network-tool">事前レンダリング</a></p>
-<p><a href="https://www.youtube.com/watch?v=bXBa-88BiYA&amp;list=PL3PnJ18ZwZncApcwG-6YTInB_ZEhjx952&amp;index=2">scrapy_おさない</a></p>
-<p><a href="https://qiita.com/chiguh28/items/7ffd88015c1793ac5a9e">scrapy_環境構築の記事</a></p>
-<p><a href="https://python.civic-apps.com/scrapy-xpath-css/">xpath css についての記事</a></p>
-<hr />
-<h3><a class="header" href="#projectの始め方" id="projectの始め方">projectの始め方</a></h3>
-<p><a href="https://docs.scrapy.org/en/latest/topics/commands.html">doc</a></p>
-<pre><code class="language-bsh">// scrapyをインストール
-pip install Scrapy
-</code></pre>
-<pre><code>// プロジェクトの作成
-scrapy startproject levtech
-// levtechフォルダが表示されるまで時間がかかる
-</code></pre>
-<pre><code class="language-bsh">cd levtech
-</code></pre>
-<pre><code class="language-bsh">// プロジェクトの管理
-scrapy startproject myproject [project_dir]
-</code></pre>
-<p>----MAC バージョンアップ後の処置----</p>
-<p>brewコマンド</p>
-<p>export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH</p>
-<p>caskコマンドの仕様変更</p>
-<p>https://www.mathkuro.com/mac/brew-cask-command-error/</p>
-<p>googleChromeのバージョンを確認してそれにあったgoogleDriveのバージョンをインストール</p>
-<p>https://pypi.org/project/chromedriver-binary/#history</p>
+<h3><a class="header" href="#接続方法" id="接続方法">接続方法</a></h3>
+<p><a href="https://algorithm.joho.info/programming/python/google-spread-sheet-py/">【Python】Googleスプレッドシートを編集する方法</a></p>
+<p><a href="https://pypi.org/project/gspread/">gspread 5.2.0</a></p>
+<p><a href="https://pypi.org/project/oauth2client/">oauth2client 4.1.3</a></p>
+<h3><a class="header" href="#よく使う処理" id="よく使う処理">よく使う処理</a></h3>
+<p><a href="https://qiita.com/d_m/items/29392a491643d374cde3">scvファイルをスプシに書き込み</a></p>
+<p>よくあるエラー</p>
+<p><a href="https://stackoverflow.com/questions/71076493/dont-work-gspreads-when-i-try-to-edit-google-sheet">スプシと接続時のエラー</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../ライブラリ/scraping.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../ライブラリ/Pandas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../ライブラリ/numpy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../paiza.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -185,13 +166,13 @@ scrapy startproject myproject [project_dir]
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../ライブラリ/scraping.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../ライブラリ/Pandas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../ライブラリ/numpy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../paiza.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
