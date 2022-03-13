@@ -427,6 +427,24 @@ github actionsで毎日の更新処理を自動化、ラインメッセージボ
 </code></pre>
 </li>
 </ul>
+<hr />
+<h1><a class="header" href="#バージョン管理" id="バージョン管理">バージョン管理</a></h1>
+<p><a href="https://pypi.org/project/chromedriver-binary/#history">googleChromeのバージョンを確認してそれにあったgoogleDriveのバージョンをインストール</a></p>
+<p><a href="https://itoraa.com/?p=742">chromedriverのことが詳しく書いてある</a></p>
+<hr />
+<h1><a class="header" href="#エラー" id="エラー">エラー</a></h1>
+<p>[OSError: [Errno 86] Bad CPU type in executable: 'chromedriver']</p>
+<p>mac初期化後に起こったこのエラーもChromeのバージョンとパッケージのバージョンのズレが原因と思ったが違うみたい ⇦ 少し違う</p>
+<p>ログインターミナルをbashからzshに変更したのが原因と思われる ⇦ 違った</p>
+<p>解決 ⇨ Chromeドライバーのインストールができていなかった</p>
+<p>ChromeドライバーってChromeの事と勘違いしてた。ドライバーはプログラムみたいなやつ。
+インストールしてpathを通すのが普通だと思いますが、今回はプロジェクトフォルダに移動させて使います
+理由 &gt;&gt; スクレイピング時にしか使わないと思うのでプロジェクト毎に管理する</p>
+<p>記述を変更</p>
+<pre><code class="language-py">driver = webdriver.Chrome(options=opts)
+    ↓
+driver = webdriver.Chrome(&quot;./chromedriver&quot;,options=opts)
+</code></pre>
 <h1><a class="header" href="#scrapy" id="scrapy">scrapy</a></h1>
 <hr />
 <p><a href="https://docs.scrapy.org/en/latest/index.html">document</a></p>
