@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Pandas</title>
+        <title>roto7</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product/numbers4.html">numbers4</a></li><li class="chapter-item expanded affix "><a href="../product/roto7.html">roto7</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html" class="active">Pandas</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/gspread.html">gspread</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../機械学習/about.html">機械学習</a></li><li class="chapter-item expanded affix "><a href="../機械学習/scikit_learn.html">scikit-learn</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../paiza.html">paiza</a></li><li class="chapter-item expanded affix "><a href="../array_01.html">配列の操作</a></li><li class="chapter-item expanded affix "><a href="../object_1.html">連想配列の操作</a></li><li class="chapter-item expanded affix "><a href="../string_1.html">文字列の操作</a></li><li class="chapter-item expanded affix "><a href="../console.html">console出力</a></li><li class="chapter-item expanded affix "><a href="../calculation.html">calculation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product/numbers4.html">numbers4</a></li><li class="chapter-item expanded affix "><a href="../product/roto7.html" class="active">roto7</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html">Pandas</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/gspread.html">gspread</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../機械学習/about.html">機械学習</a></li><li class="chapter-item expanded affix "><a href="../機械学習/scikit_learn.html">scikit-learn</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../paiza.html">paiza</a></li><li class="chapter-item expanded affix "><a href="../array_01.html">配列の操作</a></li><li class="chapter-item expanded affix "><a href="../object_1.html">連想配列の操作</a></li><li class="chapter-item expanded affix "><a href="../string_1.html">文字列の操作</a></li><li class="chapter-item expanded affix "><a href="../console.html">console出力</a></li><li class="chapter-item expanded affix "><a href="../calculation.html">calculation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -132,66 +132,23 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#pandas" id="pandas">Pandas</a></h1>
+                        <h1><a class="header" href="#roto7" id="roto7">roto7</a></h1>
 <hr />
-<p><a href="https://tanuhack.com/gspread-dataframe/">レッドシート×DataFrameを一気に変換する方法</a></p>
-<p><a href="https://note.nkmk.me/python-pandas-sort-values-sort-index/">dataframeのソート</a></p>
-<p><a href="https://note.nkmk.me/python-pandas-str-replace-strip-etc/">Series,dataframeの文字列を置換</a></p>
-<p><a href="https://blog.amedama.jp/entry/2017/11/01/211110">dataframeのcolumnの型を宣言</a></p>
-<p><a href="https://note.nkmk.me/python-pandas-drop/">dataframeの値を削除</a></p>
-<p><a href="https://note.nkmk.me/python-pandas-option-setting/">pandasのオプション設定を確認・変更する方法</a></p>
-<hr />
-<h1><a class="header" href="#よく使う処理" id="よく使う処理">よく使う処理</a></h1>
-<p>import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt</p>
-<p>CSVの読み込み</p>
-<pre><code class="language-py">df = pd.read_csv('data.scv')
-# 先頭の5件
-df.head(5)
-# 末尾の5件
-df.tail(5)
-# ランダムに5件
-df.rand(5)
-</code></pre>
-<p>欠損値の取得</p>
-<pre><code class="language-py">df.isnull().sum()
-</code></pre>
-<p>欠損値除去</p>
-<pre><code class="language-py">df.shape()
-
-df.dropna()
-</code></pre>
-<p>欠損値を0に変換</p>
-<pre><code class="language-py">df_zero = df[[&quot;time&quot;]].fillna(0)
-df_zero
-</code></pre>
-<p>欠損値を平均値に変換</p>
-<pre><code class="language-py"># 元々のデータ型がstrだったのでstrの平均値は求められない
-# int型に変換しようと思っても欠損値=NANなのでintにならない
-df_mean = df[[&quot;time&quot;]].fillna(0)
-</code></pre>
-<p>まとめ</p>
-<pre><code>df.mean() &gt;&gt; 平均
-df.std() &gt;&gt; 標準偏差
-df.isnull().sum() &gt;&gt; 平均
-</code></pre>
-<p>columnをカウント(何が何個)</p>
-<pre><code class="language-py">df[&quot;result&quot;].value_counts()
-</code></pre>
+<p>pythonのbeautifulsoup4とseleniumを使用してスクレイピングでデータ収集し,結果をGoogleSpleadSheetに書き込み。githubリンクは<a href="https://github.com/abe-masafumi/roto7">こちら</a></p>
+<p>予測不可</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../ライブラリ/numpy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../product/numbers4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../ライブラリ/gspread.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../ライブラリ/scraping.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -203,13 +160,13 @@ df.isnull().sum() &gt;&gt; 平均
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../ライブラリ/numpy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../product/numbers4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../ライブラリ/gspread.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../ライブラリ/scraping.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

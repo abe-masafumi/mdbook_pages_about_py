@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product一覧/numbers4.html">numbers4</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html" class="active">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html">Pandas</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/gspread.html">gspread</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../paiza.html"><strong aria-hidden="true">1.</strong> paiza</a></li><li class="chapter-item expanded "><a href="../array_01.html"><strong aria-hidden="true">2.</strong> 配列の操作</a></li><li class="chapter-item expanded "><a href="../object_1.html"><strong aria-hidden="true">3.</strong> 連想配列の操作</a></li><li class="chapter-item expanded "><a href="../string_1.html"><strong aria-hidden="true">4.</strong> 文字列の操作</a></li><li class="chapter-item expanded "><a href="../console.html"><strong aria-hidden="true">5.</strong> console出力</a></li><li class="chapter-item expanded "><a href="../calculation.html"><strong aria-hidden="true">6.</strong> calculation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../python_env.html">python環境</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../product/numbers3.html">numbers3</a></li><li class="chapter-item expanded affix "><a href="../product/numbers4.html">numbers4</a></li><li class="chapter-item expanded affix "><a href="../product/roto7.html">roto7</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scraping.html" class="active">スクレイピング</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/scrapy.html">scrapy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/numpy.html">numpy</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/Pandas.html">Pandas</a></li><li class="chapter-item expanded affix "><a href="../ライブラリ/gspread.html">gspread</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../機械学習/about.html">機械学習</a></li><li class="chapter-item expanded affix "><a href="../機械学習/scikit_learn.html">scikit-learn</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../paiza.html">paiza</a></li><li class="chapter-item expanded affix "><a href="../array_01.html">配列の操作</a></li><li class="chapter-item expanded affix "><a href="../object_1.html">連想配列の操作</a></li><li class="chapter-item expanded affix "><a href="../string_1.html">文字列の操作</a></li><li class="chapter-item expanded affix "><a href="../console.html">console出力</a></li><li class="chapter-item expanded affix "><a href="../calculation.html">calculation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -325,6 +325,7 @@
 <h1><a class="header" href="#バージョン管理" id="バージョン管理">バージョン管理</a></h1>
 <p><a href="https://pypi.org/project/chromedriver-binary/#history">googleChromeのバージョンを確認してそれにあったgoogleDriveのバージョンをインストール</a></p>
 <p><a href="https://itoraa.com/?p=742">chromedriverのことが詳しく書いてある</a></p>
+<p><a href="https://chromedriver.chromium.org/downloads">バージョンを指定してzipで保存して解凍</a></p>
 <hr />
 <h1><a class="header" href="#エラー" id="エラー">エラー</a></h1>
 <p>[OSError: [Errno 86] Bad CPU type in executable: 'chromedriver']</p>
@@ -332,20 +333,30 @@
 <p>ログインターミナルをbashからzshに変更したのが原因と思われる ⇦ 違った</p>
 <p>解決 ⇨ Chromeドライバーのインストールができていなかった</p>
 <p>ChromeドライバーってChromeの事と勘違いしてた。ドライバーはプログラムみたいなやつ。
-インストールしてpathを通すのが普通だと思いますが、今回はプロジェクトフォルダに移動させて使います
-理由 &gt;&gt; スクレイピング時にしか使わないと思うのでプロジェクト毎に管理する</p>
+インストールしてpathを通すのが普通だと思いますが、今回はプロジェクトフォルダに移動させて使います</p>
+<p>理由 &gt;&gt; スクレイピング時にしか使わないと思うのでプロジェクト毎に管理する</p>
 <p>記述を変更</p>
 <pre><code class="language-py">driver = webdriver.Chrome(options=opts)
     ↓
 driver = webdriver.Chrome(&quot;./chromedriver&quot;,options=opts)
 </code></pre>
+<p>↑この処理でローカルでは実行できたがリモートではエラーになる</p>
+<p><a href="https://www.linuxfixes.com/2022/02/solved-oserror-errno-8-exec-format.html?m=1">一応解決方法が記載されているサイト</a></p>
+<pre><code>少し気に食わないのでまだ実装してません
+</code></pre>
+<p><a href="https://github.com/SergeyPirogov/webdriver_manager">selenium4</a></p>
+<p><a href="https://boardtechlog.com/2020/08/programming/seleniumchrome%E3%81%A7%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86chromeoptions%E3%81%BE%E3%81%A8%E3%82%81/">Seleniumでよく使うChromeOptionsまとめ</a></p>
+<p>chromedriverをインストールするならbrewで実装</p>
+<p>なるべくChromeは最新バージョンで実装</p>
+<p>chromeはバージョンアップが早いのでできるだけオートでバージョンを管理したい</p>
+<p>リモートとローカル両方で動くようにしたい</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../product一覧/numbers4.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../product/roto7.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
@@ -363,7 +374,7 @@ driver = webdriver.Chrome(&quot;./chromedriver&quot;,options=opts)
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../product一覧/numbers4.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../product/roto7.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
