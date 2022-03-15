@@ -445,16 +445,18 @@ github actionsで毎日の更新処理を自動化、ラインメッセージボ
 <p>ChromeドライバーってChromeの事と勘違いしてた。ドライバーはプログラムみたいなやつ。
 インストールしてpathを通すのが普通だと思いますが、今回はプロジェクトフォルダに移動させて使います</p>
 <p>理由 &gt;&gt; スクレイピング時にしか使わないと思うのでプロジェクト毎に管理する</p>
-<p>記述を変更</p>
-<pre><code class="language-py">driver = webdriver.Chrome(options=opts)
-    ↓
-driver = webdriver.Chrome(&quot;./chromedriver&quot;,options=opts)
-</code></pre>
 <p>↑この処理でローカルでは実行できたがリモートではエラーになる</p>
+<p>結果 &gt;&gt; ymlファイルの変更</p>
+<pre><code>runs-on: ubuntu-latest
+        ↓
+runs-on: macos-latest
+</code></pre>
+<p>記述を変更
+<a href="https://yuki.world/python-selenium-chromedriver-auto-update/">selenium4の記述</a></p>
+<p><a href="https://github.com/SergeyPirogov/webdriver_manager">selenium4</a></p>
 <p><a href="https://www.linuxfixes.com/2022/02/solved-oserror-errno-8-exec-format.html?m=1">一応解決方法が記載されているサイト</a></p>
 <pre><code>少し気に食わないのでまだ実装してません
 </code></pre>
-<p><a href="https://github.com/SergeyPirogov/webdriver_manager">selenium4</a></p>
 <p><a href="https://boardtechlog.com/2020/08/programming/seleniumchrome%E3%81%A7%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86chromeoptions%E3%81%BE%E3%81%A8%E3%82%81/">Seleniumでよく使うChromeOptionsまとめ</a></p>
 <p>chromedriverをインストールするならbrewで実装</p>
 <p>なるべくChromeは最新バージョンで実装</p>
