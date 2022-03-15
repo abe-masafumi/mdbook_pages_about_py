@@ -325,33 +325,29 @@
 <h1><a class="header" href="#バージョン管理" id="バージョン管理">バージョン管理</a></h1>
 <p><a href="https://pypi.org/project/chromedriver-binary/#history">googleChromeのバージョンを確認してそれにあったgoogleDriveのバージョンをインストール</a></p>
 <p><a href="https://itoraa.com/?p=742">chromedriverのことが詳しく書いてある</a></p>
-<p><a href="https://chromedriver.chromium.org/downloads">バージョンを指定してzipで保存して解凍</a></p>
+<p><a href="https://chromedriver.chromium.org/downloads">バージョンを指定してzipで保存して解凍-windows用</a></p>
 <hr />
 <h1><a class="header" href="#エラー" id="エラー">エラー</a></h1>
-<p>[OSError: [Errno 86] Bad CPU type in executable: 'chromedriver']</p>
-<p>mac初期化後に起こったこのエラーもChromeのバージョンとパッケージのバージョンのズレが原因と思ったが違うみたい ⇦ 少し違う</p>
-<p>ログインターミナルをbashからzshに変更したのが原因と思われる ⇦ 違った</p>
-<p>解決 ⇨ Chromeドライバーのインストールができていなかった</p>
-<p>ChromeドライバーってChromeの事と勘違いしてた。ドライバーはプログラムみたいなやつ。
-インストールしてpathを通すのが普通だと思いますが、今回はプロジェクトフォルダに移動させて使います</p>
-<p>理由 &gt;&gt; スクレイピング時にしか使わないと思うのでプロジェクト毎に管理する</p>
-<p>↑この処理でローカルでは実行できたがリモートではエラーになる</p>
-<p>結果 &gt;&gt; ymlファイルの変更</p>
-<pre><code>runs-on: ubuntu-latest
-        ↓
-runs-on: macos-latest
+<h3><a class="header" href="#oserror-errno-86-bad-cpu-type-in-executable-chromedriver" id="oserror-errno-86-bad-cpu-type-in-executable-chromedriver">[OSError: [Errno 86] Bad CPU type in executable: 'chromedriver']</a></h3>
+<p>mac初期化後に起こった</p>
+<p>chromedriverのインストールと保存場所が変わったことでエラーが出た？</p>
+<pre><code>今回はプロジェクト内に環境を揃えたい
 </code></pre>
-<p>記述を変更
-<a href="https://yuki.world/python-selenium-chromedriver-auto-update/">selenium4の記述</a></p>
-<p><a href="https://github.com/SergeyPirogov/webdriver_manager">selenium4</a></p>
+<p>バージョンのズレ?</p>
+<pre><code>バージョンは揃えたが、Github　actionsでの実行ではバージョンがずれた &lt; 謎
+</code></pre>
+<p>おそらく今回の原因は</p>
+<p>環境を１から構築し直したのでseleniumのバージョンが上がって記述方法が変更したこと</p>
+<p>参考資料</p>
+<p><a href="https://github.com/SergeyPirogov/webdriver_manager">selenium4-webdriver_manager</a></p>
+<pre><code>selenium4の実装を参考に処理を実装して解決
+
+webdriver_managerはWebブラウザのバージョンに合わせて適切なドライバを自動的にダウンロードしてくれるの&lt;これを使ってバージョンの変化に対応
+</code></pre>
 <p><a href="https://www.linuxfixes.com/2022/02/solved-oserror-errno-8-exec-format.html?m=1">一応解決方法が記載されているサイト</a></p>
-<pre><code>少し気に食わないのでまだ実装してません
+<pre><code>この方法は今回使用しない　↑
 </code></pre>
 <p><a href="https://boardtechlog.com/2020/08/programming/seleniumchrome%E3%81%A7%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86chromeoptions%E3%81%BE%E3%81%A8%E3%82%81/">Seleniumでよく使うChromeOptionsまとめ</a></p>
-<p>chromedriverをインストールするならbrewで実装</p>
-<p>なるべくChromeは最新バージョンで実装</p>
-<p>chromeはバージョンアップが早いのでできるだけオートでバージョンを管理したい</p>
-<p>リモートとローカル両方で動くようにしたい</p>
 
                     </main>
 
