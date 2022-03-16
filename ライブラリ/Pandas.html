@@ -142,12 +142,20 @@
 <p><a href="https://note.nkmk.me/python-pandas-option-setting/">pandasのオプション設定を確認・変更する方法</a></p>
 <hr />
 <h1><a class="header" href="#よく使う処理" id="よく使う処理">よく使う処理</a></h1>
-<p>import numpy as np
+<pre><code class="language-py">import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt</p>
+import matplotlib.pyplot as plt
+
+# ファイルのパスを取得する
+from glob import glob
+</code></pre>
 <p>CSVの読み込み</p>
 <pre><code class="language-py">df = pd.read_csv('data.scv')
-# 先頭の5件
+</code></pre>
+<p>jsonをdfに変換した時の設定</p>
+<pre><code>のち
+</code></pre>
+<pre><code class="language-py"># 先頭の5件
 df.head(5)
 # 末尾の5件
 df.tail(5)
@@ -155,29 +163,87 @@ df.tail(5)
 df.rand(5)
 </code></pre>
 <p>欠損値の取得</p>
+<pre><code class="language-py">df.isnull()
+# True表記が欠損値の場所
+# &gt;&gt;
+# 	Name	Age	Sex
+# 0	False	False	False
+# 1	False	False	False
+# 2	False	False	True
+</code></pre>
+<p>欠損値の合計を取得</p>
 <pre><code class="language-py">df.isnull().sum()
+# &gt;&gt;
+# Name      0
+# Age     177
+# Sex      13
+# dtype: int64
 </code></pre>
-<p>欠損値除去</p>
-<pre><code class="language-py">df.shape()
-
+<p>dfの形を確認</p>
+<pre><code class="language-py">df.shape
+# &gt;&gt;
+# (891, 3)  891:rows 3:colmuns
+</code></pre>
+<p>欠損値を削除</p>
+<pre><code class="language-py"># コピーを作成する
 df.dropna()
+# 欠損値はindexごと削除される
+# &gt;&gt;
+# 	Name	Age	Sex
+# 0	Braund, Mr. Owen Harris	22.0	male
+# 1	Cumings, Mrs. John Bradley (Florence Briggs Th...	38.0	female
+# 3	Futrelle, Mrs. Jacques Heath (Lily May Peel)	35.0	female
 </code></pre>
-<p>欠損値を0に変換</p>
-<pre><code class="language-py">df_zero = df[[&quot;time&quot;]].fillna(0)
-df_zero
+<p>主要な統計値の取得</p>
+<pre><code class="language-py">df[[&quot;Age&quot;]].describe()
+# &gt;&gt;
+# Age
+# count	714.000000
+# mean	29.699118
+# std	14.526497
+# min	0.420000
+# 25%	20.125000
+# 50%	28.000000
+# 75%	38.000000
+# max	80.000000
 </code></pre>
-<p>欠損値を平均値に変換</p>
-<pre><code class="language-py"># 元々のデータ型がstrだったのでstrの平均値は求められない
-# int型に変換しようと思っても欠損値=NANなのでintにならない
-df_mean = df[[&quot;time&quot;]].fillna(0)
+<p>欠損値を0で保管</p>
+<pre><code class="language-py">df[[&quot;Age&quot;]].fillna(0)
 </code></pre>
-<p>まとめ</p>
-<pre><code>df.mean() &gt;&gt; 平均
-df.std() &gt;&gt; 標準偏差
-df.isnull().sum() &gt;&gt; 平均
+<p>欠損値を平均で保管</p>
+<pre><code class="language-py">df[[&quot;Age&quot;]].fillna(int(df[&quot;Age&quot;].mean()))
 </code></pre>
-<p>columnをカウント(何が何個)</p>
-<pre><code class="language-py">df[&quot;result&quot;].value_counts()
+<p>欠損値を中央値で保管</p>
+<pre><code class="language-py">df[[&quot;Age&quot;]].fillna(df[&quot;Age&quot;].median())
+</code></pre>
+<hr />
+<p>平均</p>
+<pre><code class="language-py">mean =df[&quot;Age&quot;].mean()
+</code></pre>
+<p>標準偏差</p>
+<pre><code>std = df[&quot;Age&quot;].std()
+</code></pre>
+<p>欠損値のかず</p>
+<pre><code>num = df[&quot;Age&quot;].isnull().sum()
+</code></pre>
+<p>乱数を生成</p>
+<pre><code class="language-py"># 欠損値のかず分、乱数を作成
+rand = np.random.randint(mean-std,mean+std,size=num)
+rand
+</code></pre>
+<p>データの形状を確認</p>
+<pre><code class="language-py"># hist() &gt;&gt; ヒストグラムを作成 : bins &gt;&gt; 棒のかず
+df[&quot;Age&quot;].dropna().astype(int).hist(bins=70)
+</code></pre>
+<p>欠損値を乱数で保管</p>
+<pre><code class="language-py">df[&quot;Age&quot;][df[&quot;Age&quot;].isnull()] = rand
+</code></pre>
+<p>欠損値を前の値で保管</p>
+<pre><code class="language-py">df[[&quot;Sex&quot;]].fillna(method=&quot;ffill&quot;)
+</code></pre>
+<p>ダミー変数に変換</p>
+<pre><code># 縦に消去 &gt;&gt; axis=1
+pd.get_dummies(df[&quot;Sex&quot;]).drop(&quot;male&quot;,axis=1)
 </code></pre>
 
                     </main>
