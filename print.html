@@ -629,7 +629,70 @@ pd.get_dummies(df[&quot;Sex&quot;]).drop(&quot;male&quot;,axis=1)
 <h1><a class="header" href="#scikit-learn" id="scikit-learn">scikit-learn</a></h1>
 <p><a href="https://scikit-learn.org/stable/index.html">document</a></p>
 <hr />
-<p>よく使う処理</p>
+<h3><a class="header" href="#ageカラムのデータを最小値0最大値1に正規化" id="ageカラムのデータを最小値0最大値1に正規化">Ageカラムのデータを最小値0、最大値1に正規化</a></h3>
+<pre><code class="language-py">from sklearn.preprocessing import MinMaxScaler
+</code></pre>
+<pre><code class="language-py">mmscaler = MinMaxScaler(copy=True)
+</code></pre>
+<pre><code class="language-py">lim_min, lim_max = df[&quot;Age&quot;].min(),df[&quot;Age&quot;].max()
+# &gt;&gt;
+# (0.42, 80.0)
+</code></pre>
+<p>npを使って形を変える必要がある</p>
+<pre><code class="language-py">np.array([lim_min,lim_max]).reshape(-1,1)
+# &gt;&gt;
+# array([[ 0.42],
+      #  [80.  ]])
+</code></pre>
+<p>最小値と最大値を記憶させる</p>
+<pre><code class="language-py">mmscaler.fit(np.array([lim_min,lim_max]).reshape(-1,1))
+</code></pre>
+<p>最小値と最大値を出力してみた</p>
+<pre><code class="language-py">mmscaler.transform(df[[&quot;Age&quot;]]).min()
+# &gt;&gt;
+# 0.0
+mmscaler.transform(df[[&quot;Age&quot;]]).max()
+# &gt;&gt;
+# 1.0
+</code></pre>
+<hr />
+<p>標準化:Ageカラムのデータを平均０、分散１に標準化しなさい</p>
+<pre><code class="language-py">from sklearn.preprocessing import StandardScaler
+</code></pre>
+<p>インスタンス化</p>
+<pre><code>ss = StandardScaler()
+</code></pre>
+<pre><code class="language-py">ss.fit_transform(df[[&quot;Age&quot;]]).mean()
+# 1.1961998918520205e-16
+</code></pre>
+<pre><code class="language-py">ss.fit_transform(df[[&quot;Age&quot;]]).std()
+# 0.9999999999999999
+</code></pre>
+<hr />
+<p>主成分分析：classラベルを除いたデータを平均０、分散１で標準化しなさい</p>
+<pre><code class="language-py">df_wine = pd.read_csv(&quot;wine.csv&quot;)
+df_wine.head()
+</code></pre>
+<pre><code class="language-py"># iloc[:,1:] &gt;&gt; クラス以外を取得
+_dfs = ss.fit_transform(df_wine.iloc[:,1:])
+_dfs
+</code></pre>
+<pre><code class="language-py">dfs = pd.DataFrame(_dfs, columns=df_wine.columns[1:])
+dfs.head()
+</code></pre>
+<hr />
+<p>主成分分析:PCAモデルを読み込み、transform関数を使用してデータを変換</p>
+<pre><code class="language-py">from sklearn.decomposition import PCA
+</code></pre>
+<pre><code class="language-py">pca = PCA()
+pca.fit(dfs)
+</code></pre>
+<pre><code class="language-py">featire = pca.transform(dfs)
+</code></pre>
+<pre><code class="language-py">featire = pd.DataFrame(featire,columns=[&quot;PC{}&quot;.format(x+1) for x in range(len(dfs.columns))])
+featire
+</code></pre>
+<hr />
 <h1><a class="header" href="#pizaでよく使う" id="pizaでよく使う">pizaでよく使う</a></h1>
 <hr />
 <p><a href="https://www.self-study-blog.com/dokugaku/python-standard-input/">inputの取得</a>
