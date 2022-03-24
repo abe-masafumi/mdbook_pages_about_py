@@ -510,6 +510,11 @@ import matplotlib.pyplot as plt
 # ファイルのパスを取得する
 from glob import glob
 </code></pre>
+<p>pandasの出力設定</p>
+<pre><code class="language-py">pd.set_option('display.max_rows',None)
+pd.options.display.width = 200
+pd.options.display.column_space = 60
+</code></pre>
 <p>CSVの読み込み</p>
 <pre><code class="language-py">df = pd.read_csv('data.scv')
 </code></pre>
