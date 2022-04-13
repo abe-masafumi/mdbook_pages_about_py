@@ -739,6 +739,7 @@ featire
 <p>主成分分析(プロット): featureから第一主成分と第２主成分をプロット</p>
 <h1><a class="header" href="#pizaでよく使う" id="pizaでよく使う">pizaでよく使う</a></h1>
 <hr />
+<h2><a class="header" href="#inputの取得" id="inputの取得">inputの取得</a></h2>
 <p><a href="https://www.self-study-blog.com/dokugaku/python-standard-input/">inputの取得</a>
 inputの取得方法</p>
 <pre><code class="language-py">N = int(input())
@@ -761,6 +762,20 @@ for i in range(10):
 print(line)
 </code></pre>
 <pre><code class="language-py">list(map(int, リスト))
+</code></pre>
+<hr />
+<h2><a class="header" href="#座標の作成" id="座標の作成">座標の作成</a></h2>
+<p>paizaでランタイムエラーになるかも</p>
+<pre><code class="language-py">def make_Coordinate(X,Y):
+
+  list_X = list(range(1,X+1))
+  list_Y = list(range(1,Y+1))
+  keys = [(i, u) for i in list_Y for u in list_X]
+
+  # dictに変更
+  items = dict(zip(keys,str))
+  return items
+
 </code></pre>
 <h1><a class="header" href="#配列の操作" id="配列の操作">配列の操作</a></h1>
 <hr />
@@ -785,6 +800,7 @@ for x in T_S[::-1]:
 </code></pre>
 <h1><a class="header" href="#listの重複を削除" id="listの重複を削除">listの重複を削除</a></h1>
 <p><a href="https://note.nkmk.me/python-list-duplicate-check/">Pythonでリスト（配列）に重複した要素があるか判定</a></p>
+<p>↓↓文字列でも使用可能↓↓</p>
 <p>左のリストから右のリストをひく</p>
 <pre><code>```py
 main1 = [1,2,3,4,5]
@@ -832,6 +848,24 @@ diff
 <hr />
 <h1><a class="header" href="#calculation計算" id="calculation計算">calculation(計算)</a></h1>
 <hr />
+<p>あまりをカウントしない割り算</p>
+<pre><code>```py
+numberr = 20
+
+numberr //= 6
+numberr
+# 3
+```
+</code></pre>
+<p>引き算した後の絶対値</p>
+<pre><code>```py
+numberr = 6
+
+numberr ^= 22
+numberr
+# 16
+```
+</code></pre>
 
                     </main>
 
